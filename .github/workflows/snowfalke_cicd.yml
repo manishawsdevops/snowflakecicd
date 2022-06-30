@@ -28,4 +28,10 @@ jobs:
       - name: Run SchemaChange
         env:
           SF_ACCOUNT: ${{ secrets.TEST_ENV}}
+        run: |
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          python --version
+          echo $SF_ACCOUNT
+          echo "Step1:  Installing SchemaChange"
+          pip install schemachange
           
