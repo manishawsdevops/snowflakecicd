@@ -27,4 +27,5 @@ jobs:
           
       - name: Run SchemaChange
         env:
+          SF_ACCOUNT: ${{ secrets.TEST_ENV}}
           
