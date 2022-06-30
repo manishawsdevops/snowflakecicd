@@ -28,12 +28,12 @@ jobs:
           
       - name: Run SchemaChange
         env:
-          SF_ACCOUNT: ${{ secrets.SF_ACCOUNT}}
-          SF_USERNAME: ${{ secrets.SF_USERNAME}}
-          SF_PASSWORD: ${{ secrets.SF_PASSWORD}}
-          SF_ROLE: ${{ secrets.SF_ROLE}}
-          SF_DATABASE: ${{ secrets.SF_DATABASE}}
-          SF_DATAWAREHOUSE: ${{ secrets.SF_DATAWAREHOUSE}}  
+          SF_ACCOUNT: ${{ secrets.SF_ACCOUNT }}
+          SF_USERNAME: ${{ secrets.SF_USERNAME }}
+          SF_PASSWORD: ${{ secrets.SF_PASSWORD }}
+          SF_ROLE: ${{ secrets.SF_ROLE }}
+          SF_DATABASE: ${{ secrets.SF_DATABASE }}
+          SF_DATAWAREHOUSE: ${{ secrets.SF_DATAWAREHOUSE }}  
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
