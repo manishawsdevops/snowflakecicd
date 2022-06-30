@@ -28,11 +28,18 @@ jobs:
           
       - name: Run SchemaChange
         env:
-          SF_ACCOUNT: ${{ secrets.TEST_ENV}}
+          SF_ACCOUNT: ${{ secrets.SF_ACCOUNT}}
+          SF_USERNAME: ${{ secrets.SF_USERNAME}}
+          SF_PASSWORD: ${{ secrets.SF_PASSWORD}}
+          SF_ROLE: ${{ secrets.SF_ROLE}}
+          SF_DATABASE: ${{ secrets.SF_DATABASE}}
+          SF_DATAWAREHOUSE: ${{ secrets.SF_DATAWAREHOUSE}}  
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
-          echo $SF_ACCOUNT
           echo "Step1:  Installing SchemaChange"
           pip install schemachange
+          
+          echo "Step2: Run Schemachange"
+          schemachange -f $GITHUB_WORKSPACE/dbscripts -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_DATAWAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
           
